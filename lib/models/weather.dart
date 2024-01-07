@@ -21,6 +21,8 @@ class Weather extends Equatable {
   });
 
   factory Weather.fromJson(Map<String, dynamic> json) {
+    print("Weather $json");
+
     final weather = json['weather'][0];
     final main = json['main'];
 
