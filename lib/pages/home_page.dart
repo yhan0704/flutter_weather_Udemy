@@ -76,15 +76,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget formatText(String description) {
-    final formattedString = description.titleCase;
-    return Text(
-      formattedString,
-      style: const TextStyle(fontSize: 24.0),
-      textAlign: TextAlign.center,
-    );
-  }
-
   Widget _showWeather() {
     return BlocConsumer<WeatherCubit, WeatherState>(
       listener: (context, state) {
@@ -181,7 +172,11 @@ class _HomePageState extends State<HomePage> {
                 showIcon(state.weather.icon),
                 Expanded(
                   flex: 3,
-                  child: formatText(state.weather.description),
+                  child: Text(
+                    state.weather.description,
+                    style: const TextStyle(fontSize: 24.0),
+                    textAlign: TextAlign.center,
+                  ),
                 ),
                 Spacer(),
               ],
